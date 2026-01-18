@@ -504,6 +504,104 @@ When Dan asks you to output a session, you can provide:
 - Include presenter notes
 - Keep text minimal on slides - detail goes in notes
 
+**4. Async Course (HTML)**
+- Self-paced learning module
+- Use the long-form scrollable format (see below)
+- Output as single HTML file in `dist/` folder
+
+---
+
+## Async Course Format
+
+**IMPORTANT: Always use the LONG-FORM SCROLLABLE format, NOT card-based navigation.**
+
+When creating async courses, reference the template at:
+`/Users/dancourse/Documents/GitHub/WIP/21-chatgpt-setup-course/ASYNC_COURSE_TEMPLATE.md`
+
+### Format: Single Scrollable Page
+
+The correct format is a **single scrollable page with distinct sections**. Think online article with visual richness, NOT Duolingo-style flashcards.
+
+**Why this format:**
+- Images create visual interest and aid memory
+- Video placeholders signal "proper course"
+- Case studies ground concepts in reality
+- References add credibility
+- Long-form allows deeper exploration per section
+
+### Required Elements
+
+**Page Structure:**
+- Header with title, version badge, subtitle, duration
+- Benefit statement ("After this course, I can...")
+- Safety banner (enterprise accounts, verify outputs, contact InfoSec)
+- Numbered sections with `.section` class
+- References section with numbered citations
+- Further reading with 4-5 external links
+- Final safety reminder
+- Footer with version and last updated
+
+**Per Section (Required):**
+- Conceptual SVG image at top (inline, not external file)
+- "In This Section" preview box (3 bullet points)
+- Section heading (h2) with number
+- Body content with proper paragraphs and lists
+- "Section Recap" box at bottom (3-4 bullet points)
+
+**Per Section (When Applicable):**
+- Video placeholder with title and duration
+- Case study box with real example and source link
+- Data tables for comparisons
+- Template/code cards with copy buttons
+- Stat boxes for key numbers
+- Warning boxes for important caveats
+
+**Interactive Elements:**
+- Quiz section with inline questions
+- Copy buttons on all code/template blocks
+- All external links open in new window (`target="_blank" rel="noopener"`)
+
+**Page Navigation (Required):**
+- Sticky nav bar at top with clickable page links
+- Progress bar showing completion
+- Prev/Next buttons at bottom of each page
+- Each section wrapped in `<div class="page" data-page="N">`
+- Completed pages show checkmark in nav
+
+### SVG Guidelines for Sections
+
+Each section needs a conceptual inline SVG at the top:
+
+- ViewBox: `0 0 800 300` (landscape)
+- Background: Gradient from `#1a1a2e` to `#16213e`
+- Primary accent: `#4ECDC4` (cyan)
+- Secondary: `#FF6B6B` (coral), `#45B7D1` (teal), `#96CEB4` (mint)
+- Style: Abstract, conceptual, NOT literal illustrations
+
+| Section Type | SVG Concept |
+|--------------|-------------|
+| Problem | Scattered elements, chaos, question marks |
+| Solution/Framework | Organized structure, layers, connected nodes |
+| Technique | Shield, tools, gears, arrows showing process |
+| Practice | Hands, building blocks, progressive steps |
+| Safety | Warning symbols, locks, shields |
+
+### Anti-Patterns to Avoid
+
+❌ Card-based navigation (prev/next buttons, one concept per card)
+❌ External image files (use inline SVGs)
+❌ Missing preview/recap boxes per section
+❌ No references or further reading
+❌ Links without `target="_blank"`
+❌ Missing safety content
+❌ No visual hierarchy (walls of text)
+
+### Reference Implementations
+
+Good examples to study:
+- `/Users/dancourse/Documents/GitHub/WIP/19-data-exploration-course/dist/html/index.html`
+- `/Users/dancourse/Documents/GitHub/WIP/21-chatgpt-setup-course/dist/course.html`
+
 ## Session Brief (Markdown)
 
 **When creating or updating a presentation, maintain a `session-brief.md` file locally.**
