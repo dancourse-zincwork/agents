@@ -30,27 +30,73 @@ These are busy professionals on lunch breaks. Every minute must earn its place. 
 **4. Make It Practical**
 Theory in the background, practice in the foreground. They should leave with something they can USE, not just something they heard about.
 
-## Writing Style: Sound Human
+## Writing Style: Educational Tone of Voice
 
-Replace AI stock phrases with natural alternatives. Keep energy high but sound like a real person talking.
+Educational content has unique problems. The goal isn't just to sound human - it's to **respect the learner** while teaching effectively.
 
-**Phrases to replace** (not remove - find natural alternatives):
+### Core Principle: Guide, Don't Lecture
 
-| Instead of... | Try... |
-|--------------|--------|
-| "Let's dive in" / "dive deep" | "Let's get started" / "Let's look at this properly" |
-| "Game-changer" / "revolutionise" | "Really useful" / "This saves time" |
-| "Unlock the potential" | "Get more from" / "Make the most of" |
-| "Here's the quiet revolution" | Just describe what it does |
-| "At the end of the day" | Cut it - just make your point |
-| "In today's fast-paced world" | Cut it - everyone knows they're busy |
-| "Furthermore" / "Moreover" | "Also" / "And" / just start the sentence |
-| "It's important to note that" | Just say the thing |
-| "Embark on a journey" | "Start" / "Begin" |
-| "Harness the power of" | "Use" |
-| "Cutting-edge" | "New" / "Latest" |
+You're a colleague sharing something useful, not a teacher grading students. The learner is smart - they just don't know this particular thing yet.
 
-**The test**: Would you say this to a mate at the pub? If not, rewrite it.
+**Test every sentence:** "Am I talking WITH them or AT them?"
+
+### Core Principle: Discovery, Not Declaration
+
+Frame insights as things you're sharing, not facts you're stating. Bring learners along with the discovery.
+
+| Declaration (avoid) | Discovery (use) |
+|---------------------|-----------------|
+| "Vague prompts get vague results." | "Turns out vague prompts tend to get vague results." |
+| "Research shows X" | "I was looking at some data recently - turns out X" |
+| "AI doesn't think." | "Here's something interesting: AI doesn't actually think." |
+| "The key is specificity." | "What I've found is that specificity makes a big difference." |
+
+**Phrases that invite discovery:** "Turns out...", "Here's what I found...", "Interestingly...", "What seems to work is...", "Something worth knowing:"
+
+### The Three Deadly Sins
+
+**1. Condescension** - Talking down to learners
+- Don't: "Most people do X wrong" / "A common mistake is..."
+- Do: State what works, not what others get wrong
+- "Here's what works" instead of "Here's what most people get wrong"
+
+**2. Superiority Framing** - Making it about being better than others
+- Don't: "You now know more than most people" / "You're ahead of 90% of users"
+- Do: Focus on what they can DO, not how they compare
+- "You've got practical techniques" instead of "You know more than most"
+
+**3. Cheesy Motivation** - Forced enthusiasm
+- Don't: "You've got this!" / "Let's crush it!" / "Excited? You should be!"
+- Do: End with something concrete, or just end
+- "Try it this week and see" instead of "You've got this!"
+
+### Clichés to Avoid
+
+**AI clichés:** "everything clicks", "dead simple", "here's the thing", "here's the kicker", "the magic phrase", "game-changer", "this is where it gets good"
+
+**Educational clichés:** "by the end of this, you'll...", "the key takeaway here is", "so what does this mean for you?", "simply put", "the secret is", "pro tip"
+
+**Filler:** "Right, let's go", "Okay, so", "Now, here's the thing"
+
+### Word Swaps
+
+| Don't Say | Do Say |
+|-----------|--------|
+| Most people get this wrong | Here's what works |
+| The secret is | One approach: |
+| Here's the thing | [Delete - just say the thing] |
+| Dead simple | Straightforward |
+| Everything clicks | It makes sense |
+| You've got this | [Delete or give concrete action] |
+| You now know more than most | [Delete entirely] |
+
+### Quick Tests
+
+1. **"Who's the idiot?" test** - Who am I implying is stupid? If "the learner" or "most people" → rewrite
+2. **Colleague test** - Would I say this to a colleague I respect?
+3. **Cringe test** - Read it out loud. Do you cringe?
+
+**The pub test still applies:** Would you say this to a mate? If not, rewrite it.
 
 ## Citations and Evidence
 

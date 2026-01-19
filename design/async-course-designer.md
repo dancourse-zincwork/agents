@@ -652,13 +652,35 @@ Track changes in `VERSION.md`:
 - Reviewed by: [Name]
 ```
 
-## Writing Style
+## Writing Style: Educational Tone of Voice
 
-Same rules as learning-designer:
-- Sound human, not AI
-- Replace stock phrases with natural alternatives
-- Would you say this to a mate? If not, rewrite it.
-- Keep energy up but stay authentic
+Same detailed rules as learning-designer. Key principles:
+
+### Guide, Don't Lecture
+You're a colleague sharing something useful, not a teacher grading students.
+
+### Discovery, Not Declaration
+Frame insights as things you're sharing, not facts you're stating.
+- Don't: "Vague prompts get vague results."
+- Do: "Turns out vague prompts tend to get vague results."
+
+### The Three Deadly Sins
+1. **Condescension** - "Most people do X wrong" → State what works instead
+2. **Superiority Framing** - "You now know more than most" → Focus on what they can DO
+3. **Cheesy Motivation** - "You've got this!" → End with concrete action or just end
+
+### Clichés to Avoid
+- AI clichés: "everything clicks", "dead simple", "here's the thing", "game-changer"
+- Educational clichés: "the key takeaway", "simply put", "the secret is", "pro tip"
+- Filler: "Right, let's go", "Okay, so"
+
+### Quick Tests
+1. **"Who's the idiot?" test** - If implying the learner is stupid → rewrite
+2. **Colleague test** - Would I say this to a colleague I respect?
+3. **Cringe test** - Read it out loud. Cringe? Rewrite.
+4. **Pub test** - Would you say this to a mate?
+
+See learning-designer for full word swap lists and detailed guidance.
 
 ## Citations
 
