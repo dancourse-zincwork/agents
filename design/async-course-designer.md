@@ -109,8 +109,19 @@ This context informs all courses - examples should feel relevant to Zinc's work.
 ```
 REQUIRED FILES CHECKLIST (course will be rejected without these):
 
+src/
+├── content/
+│   └── lessons/                   ← MASTER content (source of truth)
+│       └── XX-module-name.md      ← Canonical lesson for each module
+└── design/
+    └── support-agent-prompt.md    ← REQUIRED for every course
+
+assets/                            ← Shared media folder must exist
+├── images/                        ← Or diagrams/, conceptual/, videos/
+
 dist/notion/
-├── 00-welcome/welcome.md          ← Must have v1.0 + enterprise reminder
+├── 00-welcome/
+│   └── welcome.md                 ← Must have v1.0 + enterprise reminder
 ├── XX-module-name/
 │   ├── lesson-01.md               ← Must start with benefit statement
 │   └── quiz.md                    ← EVERY module needs a quiz file
@@ -119,10 +130,12 @@ dist/notion/
 │       └── module-X-job-aid.md    ← EVERY module needs a job aid
 └── completion.md                  ← Must have Further Reading + enterprise reminder
 
-src/design/
-└── support-agent-prompt.md        ← REQUIRED for every course
+dist/html/                         ← Standalone HTML version
+└── index.html
 
-dist/images/                       ← Copy final images here, not just src/
+dist/live-session/                 ← 60-min facilitated version (if applicable)
+├── slides.json
+└── presenter-notes.md
 ```
 
 **If ANY of these files are missing, DO NOT mark the course complete.**
@@ -394,44 +407,64 @@ These can be hosted on Railway for interactive web experiences.
 
 ## Course Structure Template
 
+The folder structure separates MASTER content (src/) from shared assets (assets/) and format-specific outputs (dist/).
+
 ```
 course-name/
-├── src/                          # All research & design material
+├── src/                              # MASTER: Research & canonical content
 │   ├── research/
-│   │   ├── topic-research.md     # Initial research findings
+│   │   ├── topic-research.md         # Initial research findings
 │   │   ├── competitor-analysis.md
-│   │   └── sources.md            # All citations and references
+│   │   └── sources.md                # All citations and references
 │   ├── design/
-│   │   ├── course-brief.md       # Course objectives and scope
-│   │   ├── module-outlines.md    # Detailed module structure
+│   │   ├── course-brief.md           # Course objectives and scope
+│   │   ├── module-outlines.md        # Detailed module structure
+│   │   ├── support-agent-prompt.md   # AI helper for learners
 │   │   └── assessment-strategy.md
-│   ├── content/
-│   │   ├── video-scripts/        # Scripts for each video
-│   │   ├── quiz-questions/       # All quiz content
-│   │   └── practice-scenarios/   # Practice data and scenarios
-│   └── assets/
-│       ├── diagrams/             # Source files for imagery
-│       └── references/           # Supporting documents
+│   └── content/                      # Source of truth for all lessons
+│       ├── lessons/                  # Canonical lesson content
+│       │   ├── 01-module-name.md
+│       │   └── 02-module-name.md
+│       ├── video-scripts/            # Scripts for each video
+│       ├── quiz-questions/           # All quiz content
+│       └── practice-scenarios/       # Practice data and scenarios
 │
-├── dist/                         # Final polished output
-│   ├── notion/                   # Ready-to-import Notion content
-│   │   ├── 00-welcome.md
+├── assets/                           # Shared media (single source of truth)
+│   ├── images/                       # PNGs, JPGs
+│   ├── diagrams/                     # SVGs from /presentation-imagery
+│   ├── conceptual/                   # SVGs from /conceptual-imagery
+│   └── videos/                       # MP4s or links to hosted videos
+│
+├── dist/                             # Format-specific outputs (derived from MASTER)
+│   ├── html/                         # Standalone HTML course
+│   │   ├── index.html
+│   │   └── styles.css
+│   ├── notion/                       # Notion-ready markdown
+│   │   ├── 00-welcome/
+│   │   │   └── welcome.md
 │   │   ├── 01-module-name/
 │   │   │   ├── lesson-01.md
-│   │   │   ├── lesson-02.md
 │   │   │   └── quiz.md
-│   │   ├── 02-module-name/
 │   │   ├── resources/
 │   │   │   ├── job-aids/
 │   │   │   └── templates/
 │   │   └── completion.md
-│   ├── videos/                   # Video files or links
-│   ├── interactives/             # Railway-hosted interactive specs
-│   └── images/                   # Final imagery
+│   ├── live-session/                 # 60-min facilitated version
+│   │   ├── slides.json
+│   │   ├── presenter-notes.md
+│   │   └── session-brief.md
+│   └── interactives/                 # Railway-hosted interactive specs
 │
-├── VERSION.md                    # Version history
-└── README.md                     # Course overview
+├── VERSION.md                        # Version history
+└── README.md                         # Course overview
 ```
+
+### Key Principles
+
+1. **src/content/** is the MASTER - canonical lessons that all formats derive from
+2. **assets/** is shared - one place to update images, all formats get them
+3. **dist/** formats can have tweaks but trace back to MASTER content
+4. Each dist format references `../assets/` or embeds as needed
 
 ## Module Structure Template
 

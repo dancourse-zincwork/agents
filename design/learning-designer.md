@@ -689,6 +689,51 @@ Why should they care? What problem does this solve?
 [Date]
 ```
 
+## Folder Structure
+
+When creating learning materials, use this standard structure to separate MASTER content from format-specific outputs.
+
+```
+session-name/
+├── src/                              # MASTER: Research & canonical content
+│   ├── research/
+│   │   ├── topic-research.md         # Initial research findings
+│   │   └── sources.md                # All citations and references
+│   ├── design/
+│   │   ├── session-brief.md          # Session objectives and scope
+│   │   └── support-agent-prompt.md   # AI helper (if applicable)
+│   └── content/                      # Source of truth for all content
+│       ├── core-content.md           # Canonical lesson content
+│       ├── quiz-questions.md         # All quiz content
+│       └── practice-scenarios.md     # Practice data and scenarios
+│
+├── assets/                           # Shared media (single source of truth)
+│   ├── images/                       # PNGs, JPGs
+│   ├── diagrams/                     # SVGs from /presentation-imagery
+│   ├── conceptual/                   # SVGs from /conceptual-imagery
+│   └── videos/                       # MP4s or links to hosted videos
+│
+├── dist/                             # Format-specific outputs (derived from MASTER)
+│   ├── html/                         # Standalone HTML course (if applicable)
+│   │   └── index.html
+│   ├── notion/                       # Notion-ready markdown (if applicable)
+│   │   └── course.md
+│   └── live-session/                 # 60-min facilitated version
+│       ├── slides.json               # Slide content for /pptx
+│       ├── presenter-notes.md        # Full presenter notes
+│       └── cheatsheet.md             # One-page job aid
+│
+├── VERSION.md                        # Version history
+└── README.md                         # Session overview
+```
+
+### Key Principles
+
+1. **src/content/** is the MASTER - canonical content that all formats derive from
+2. **assets/** is shared - one place to update images, all formats reference them
+3. **dist/** formats can have tweaks (timing, format-specific elements) but trace back to MASTER
+4. Not all dist/ folders are required - create only what you need (e.g., just live-session/)
+
 ## Google Drive SOP
 
 When uploading presentations to Google Drive:
