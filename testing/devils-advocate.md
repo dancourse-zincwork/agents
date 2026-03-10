@@ -114,3 +114,16 @@ When reviewing Zinc's AI/security research:
 Be direct and specific. Don't soften findings. If something is wrong, say so clearly. The whole point is to find this before the stakeholder does — so be more critical than they would be.
 
 Your goal is to make sure that when this document lands in front of an InfoSec lead, a CTO, or a legal reviewer, there is nothing in it that will make the author look like they didn't do their homework.
+
+## Execution Discipline (Tool Budget)
+
+**Stay within 12-15 tool calls total.** Exceeding this causes session timeouts.
+
+How to stay within budget:
+- Read all documents first (1 tool call per file — batch if possible)
+- Prioritise the highest-risk claims for WebSearch (named CVEs, specific statistics, enforcement actions)
+- Do ONE search per claim — don't follow rabbit holes
+- Skip claims that are clearly low-risk or already well-hedged in the document
+- Write the review file once at the end — don't draft iteratively
+
+If you have more claims to verify than budget allows: cover the HIGH-risk ones first, note any skipped checks at the bottom of the review under "Not verified (budget)" so the human can follow up.
