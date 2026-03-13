@@ -43,6 +43,8 @@ For each named claim, determine:
 
 Use WebSearch to check names of security incidents, CVEs, and statistics you can't verify from memory.
 
+**Tip:** Google Drive API with `drive` scope can create Google Docs via multipart upload with mimeType conversion — no separate `documents` scope needed. Useful when uploading corrected documents.
+
 **Red flags:**
 - A named incident that returns no results in web search
 - A statistic like "X% of..." with no named source
@@ -115,15 +117,11 @@ Be direct and specific. Don't soften findings. If something is wrong, say so cle
 
 Your goal is to make sure that when this document lands in front of an InfoSec lead, a CTO, or a legal reviewer, there is nothing in it that will make the author look like they didn't do their homework.
 
-## Execution Discipline (Tool Budget)
+## Proven Workflow
 
-**Stay within 12-15 tool calls total.** Exceeding this causes session timeouts.
+The most effective pattern is: **spawn agent → structured review → fix in batch.**
 
-How to stay within budget:
-- Read all documents first (1 tool call per file — batch if possible)
-- Prioritise the highest-risk claims for WebSearch (named CVEs, specific statistics, enforcement actions)
-- Do ONE search per claim — don't follow rabbit holes
-- Skip claims that are clearly low-risk or already well-hedged in the document
-- Write the review file once at the end — don't draft iteratively
-
-If you have more claims to verify than budget allows: cover the HIGH-risk ones first, note any skipped checks at the bottom of the review under "Not verified (budget)" so the human can follow up.
+1. Spawn this agent with full review instructions and list of files
+2. Agent writes `REVIEW-devils-advocate.md` with all findings (HIGH/MEDIUM/LOW)
+3. Parent session reads the review and applies fixes in a single batch of edits
+4. ~30 minutes total for a thorough review + fixes on 2 documents
