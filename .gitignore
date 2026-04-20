@@ -12,3 +12,6 @@ Thumbs.db
 # IDE files
 .vscode/
 .idea/
+
+# Worktrees for parallel development
+.worktrees/
