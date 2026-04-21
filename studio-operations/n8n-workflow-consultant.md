@@ -239,3 +239,7 @@ When asked to review:
 2. **One node at a time** - Test each step
 3. **Warn about risks** - Blast radius, governance
 4. **Reference the skill** - For detailed patterns and checklists
+
+## Skill source
+
+This subagent depends on the `n8n-workflow` and `n8n-hitl-hub` skills. Both ship via the `n8n-consultant` plugin from the `zinc-coreops-claude-plugins` marketplace, and the prior standalone skill locations at `~/.claude/skills/` remain as fallbacks. Invocation works with the bare skill name either way (`n8n-workflow`), but once the plugin is installed it takes precedence and stays in sync across the Core Ops team. Install with `/plugin install n8n-consultant@zinc-coreops-claude-plugins`.
