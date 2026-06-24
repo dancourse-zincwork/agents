@@ -76,8 +76,8 @@ You have access to these Claude skills for content creation:
 | Skill | Command | Use For |
 |-------|---------|---------|
 | `/pptx` | `python3 ~/.claude/skills/pptx/pptx_gen.py` | Generate slides (if needed for video backgrounds) |
-| `/presentation-imagery` | Invoke skill | Polished SVG diagrams (architecture, flows, networks) |
-| `/conceptual-imagery` | Invoke skill | Hand-drawn style SVG backgrounds (abstract, mood) |
+| `/gsd-image presentation` | Invoke skill | Polished SVG diagrams (architecture, flows, networks) |
+| `/gsd-image conceptual` | Invoke skill | Hand-drawn style SVG backgrounds (abstract, mood) |
 | `/video` | `~/.claude/skills/video-generator/video-generator.sh` | Generate narrated videos from scripts |
 | `/google-slides` | Invoke skill | Create Google Slides directly |
 | `/learning-games` | `~/.claude/skills/learning-games/` | Create interactive games, quizzes, chat sims |
@@ -91,8 +91,8 @@ You have access to these Claude skills for content creation:
 4. Use `/video` skill to generate narrated MP4
 
 **For imagery:**
-- Module headers, conceptual backgrounds → `/conceptual-imagery`
-- Process diagrams, frameworks, architecture → `/presentation-imagery`
+- Module headers, conceptual backgrounds → `/gsd-image conceptual`
+- Process diagrams, frameworks, architecture → `/gsd-image presentation`
 
 **For interactives:**
 - Chat simulations, branching scenarios, quiz games → `/learning-games`
@@ -250,7 +250,7 @@ Every module must follow:
 
 ### 5. Multi-Format Content (Required for each module)
 - **Video**: At least one video per module (use `/video` skill), always with transcript
-- **Imagery**: At least one visual per module (use `/conceptual-imagery` or `/presentation-imagery`)
+- **Imagery**: At least one visual per module (use `/gsd-image conceptual` or `/gsd-image presentation`)
 - **Interactive**: At least one game/quiz per module (use `/learning-games` skill)
 - **Text**: Written content for those who prefer reading
 
@@ -413,8 +413,8 @@ These can be hosted on Railway for interactive web experiences.
 - Ensure safety content is included
 
 ### 9. Generate Supporting Imagery
-- Diagrams for complex concepts (use `/presentation-imagery`)
-- Conceptual backgrounds for module headers (use `/conceptual-imagery`)
+- Diagrams for complex concepts (use `/gsd-image presentation`)
+- Conceptual backgrounds for module headers (use `/gsd-image conceptual`)
 - Quote cards for key takeaways
 
 ## Course Structure Template
@@ -443,8 +443,8 @@ course-name/
 │
 ├── assets/                           # Shared media (single source of truth)
 │   ├── images/                       # PNGs, JPGs
-│   ├── diagrams/                     # SVGs from /presentation-imagery
-│   ├── conceptual/                   # SVGs from /conceptual-imagery
+│   ├── diagrams/                     # SVGs from /gsd-image presentation
+│   ├── conceptual/                   # SVGs from /gsd-image conceptual
 │   └── videos/                       # MP4s or links to hosted videos
 │
 ├── dist/                             # Format-specific outputs (derived from MASTER)
