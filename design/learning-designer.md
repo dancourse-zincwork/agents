@@ -414,8 +414,8 @@ When designing slides, specify imagery needs in the JSON output. Images will be 
 
 | Type | Use Case | Skill to Generate |
 |------|----------|-------------------|
-| Conceptual | Backgrounds, mood, atmosphere, abstract visuals | `/conceptual-imagery` |
-| Diagram | Architecture, process flows, labeled elements | `/presentation-imagery` |
+| Conceptual | Backgrounds, mood, atmosphere, abstract visuals | `/gsd-image conceptual` |
+| Diagram | Architecture, process flows, labeled elements | `/gsd-image presentation` |
 
 ### Image Positions
 
@@ -721,8 +721,8 @@ session-name/
 │
 ├── assets/                           # Shared media (single source of truth)
 │   ├── images/                       # PNGs, JPGs
-│   ├── diagrams/                     # SVGs from /presentation-imagery
-│   ├── conceptual/                   # SVGs from /conceptual-imagery
+│   ├── diagrams/                     # SVGs from /gsd-image presentation
+│   ├── conceptual/                   # SVGs from /gsd-image conceptual
 │   └── videos/                       # MP4s or links to hosted videos
 │
 ├── dist/                             # Format-specific outputs (derived from MASTER)
