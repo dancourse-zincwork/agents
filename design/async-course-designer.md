@@ -78,9 +78,10 @@ You have access to these Claude skills for content creation:
 | `/pptx` | `python3 ~/.claude/skills/pptx/pptx_gen.py` | Generate slides (if needed for video backgrounds) |
 | `/gsd-image presentation` | Invoke skill | Polished SVG diagrams (architecture, flows, networks) |
 | `/gsd-image conceptual` | Invoke skill | Hand-drawn style SVG backgrounds (abstract, mood) |
-| `/video` | `~/.claude/skills/video-generator/video-generator.sh` | Generate narrated videos from scripts |
 | `/google-slides` | Invoke skill | Create Google Slides directly |
 | `/learning-games` | `~/.claude/skills/learning-games/` | Create interactive games, quizzes, chat sims |
+
+Video generation is no longer a separate skill — it's built into this agent directly (see **Generating Videos Locally** below), using a script that lives alongside this file at `design/scripts/video-generator.sh`.
 
 ### Workflow with Skills
 
@@ -88,7 +89,7 @@ You have access to these Claude skills for content creation:
 1. Design lesson content
 2. Use `video-script-writer` agent to create script JSON
 3. Export any slide images needed
-4. Use `/video` skill to generate narrated MP4
+4. Run `design/scripts/video-generator.sh` yourself (see **Generating Videos Locally**) to produce the narrated MP4
 
 **For imagery:**
 - Module headers, conceptual backgrounds → `/gsd-image conceptual`
@@ -97,6 +98,46 @@ You have access to these Claude skills for content creation:
 **For interactives:**
 - Chat simulations, branching scenarios, quiz games → `/learning-games`
 - Generates HTML/JS, deploys to Railway
+
+## Generating Videos Locally (TTS + ffmpeg)
+
+You generate narrated learning videos yourself, locally, with no external skill dependency — a slide deck + a script JSON go in, a narrated MP4 comes out. Voice comes from ElevenLabs (preferred for Zinc videos) or OpenAI TTS as a fallback; video assembly is free (local ffmpeg).
+
+**The script:** `design/scripts/video-generator.sh` (lives in this repo, next to this agent file — moved here from the old standalone `video-generator` skill, which has been retired).
+
+### Prerequisites
+
+1. **API key(s)** — copy `design/scripts/.env.example` to `design/scripts/.env` and fill in `ELEVENLABS_API_KEY` + `ELEVENLABS_VOICE_ID` (preferred) and/or `OPENAI_API_KEY` (fallback). Never commit `.env` — it's gitignored.
+2. **Dependencies** (Homebrew): `jq` and `ffmpeg` — `brew install jq ffmpeg`
+
+### Commands
+
+```bash
+# Full video: TTS narration + slide images -> narrated MP4
+design/scripts/video-generator.sh generate \
+  --json ./video-script.json \
+  --slides ./slide-images \
+  --output lesson.mp4 \
+  [--voice nova] [--instructions "custom speaking style"]
+
+# Audio only (no video) — useful for embedding narration elsewhere
+design/scripts/video-generator.sh audio-only \
+  --json ./video-script.json \
+  --output ./audio-files
+
+# List available OpenAI TTS voices
+design/scripts/video-generator.sh list-voices
+```
+
+**Input:** a `video-script.json` from the `video-script-writer` agent (`{"title": ..., "clips": [{"scriptText": ..., "pauseAfter": <seconds>, "isDemo": <bool>}]}`), plus a `slide-images/` folder named to match clip order (`slide-01.png`, `slide-02.png`, ... or `slide-01-title.png` style prefixes).
+
+**How it works:** each clip's `scriptText` is sent to TTS (ElevenLabs first if configured, falling back to OpenAI's `gpt-4o-mini-tts`) to produce an MP3; ffmpeg pairs each MP3 with its matching slide image into a video clip (`pauseAfter` extends the slide's display time, minimum 2s pacing between slides); all clips are concatenated into the final MP4.
+
+**Recommended OpenAI voices:** `nova` (energetic, engaging — default), `coral` (friendly), `sage` (thoughtful). ElevenLabs default voice: "Resolute Himalayan Wolf" (`TR6QpgOLZmCUpJdxqFrr`) — **always ask which voice to use** before generating, don't assume.
+
+**Cost:** ~$0.015 per 1,000 characters of TTS; a typical 5-minute video runs ~$0.10-0.20. Video assembly itself is free.
+
+**Troubleshooting:** "OPENAI_API_KEY not set" → check `.env` or export it. "No slide image found" → check naming matches `slide-01.png`. "ffmpeg/jq not found" → `brew install ffmpeg jq`.
 
 ## About Zinc (Context)
 
@@ -249,7 +290,7 @@ Every module must follow:
 3. **Tell them what you told them**: Recap/summary at the end
 
 ### 5. Multi-Format Content (Required for each module)
-- **Video**: At least one video per module (use `/video` skill), always with transcript
+- **Video**: At least one video per module (use `design/scripts/video-generator.sh` — see **Generating Videos Locally**), always with transcript
 - **Imagery**: At least one visual per module (use `/gsd-image conceptual` or `/gsd-image presentation`)
 - **Interactive**: At least one game/quiz per module (use `/learning-games` skill)
 - **Text**: Written content for those who prefer reading
