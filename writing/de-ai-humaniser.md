@@ -387,7 +387,7 @@ Always reference these files:
 - Want general de-AI work (not brand-specific)
 
 ❌ **Don't use when:**
-- Need brand-specific TOV (use tone-of-voice-zinc instead)
+- Need brand-specific tone-of-voice work (that's a separate concern from de-AI cleanup)
 - Just need grammar/spelling fixes
 - Content is already human-written and natural
 
